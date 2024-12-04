@@ -20,19 +20,13 @@ import static org.mockito.Mockito.when;
 public class TestCases {
 
     @Autowired
-    private OrderController orderController;
+    private OrderController orderController;  // Spring will inject this automatically
 
     @MockBean
     private OrderRepository orderRepository;
 
     @MockBean
     private OrderService mockOrderService;
-
-    @BeforeEach
-    public void setup() {
-        // Ensuring mockOrderService is used properly and OrderController is initialized accordingly
-        orderController = new OrderController(mockOrderService);
-    }
 
     @Test
     public void testOrderController() {
