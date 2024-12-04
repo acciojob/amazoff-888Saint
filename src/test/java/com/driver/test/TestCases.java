@@ -37,9 +37,16 @@ public class TestCases {
 
     @Test
     public void testOrderController() {
+        // Create an instance of OrderService (it could be a mock)
+        OrderService orderService = new OrderService();
+
+        // Now pass the OrderService instance to the OrderController constructor
+        OrderController orderController = new OrderController(orderService);
+
         // Verifying that OrderController is properly initialized
         assertNotNull(orderController, "OrderController should be initialized");
     }
+
 
     @Test
     public void testAddOrder() {
