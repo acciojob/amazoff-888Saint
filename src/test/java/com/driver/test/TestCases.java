@@ -11,10 +11,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(classes = Application.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -24,29 +23,19 @@ public class TestCases {
     private OrderController orderController;
 
     @MockBean
-    private OrderRepository orderRepository;
-
-    @MockBean
     private OrderService mockOrderService;
 
     @BeforeEach
     public void setup() {
-        mockOrderService = mock(OrderService.class);
+        // Ensuring mockOrderService is used properly and OrderController is initialized accordingly
         orderController = new OrderController(mockOrderService);
     }
 
     @Test
     public void testOrderController() {
-        // Create an instance of OrderService (it could be a mock)
-        OrderService orderService = new OrderService();
-
-        // Now pass the OrderService instance to the OrderController constructor
-        OrderController orderController = new OrderController(orderService);
-
         // Verifying that OrderController is properly initialized
         assertNotNull(orderController, "OrderController should be initialized");
     }
-
 
     @Test
     public void testAddOrder() {
