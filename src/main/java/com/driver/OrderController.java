@@ -19,8 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("orders")
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService)
+    {
+        this.orderService = orderService;
+    }
 
 
     @PostMapping("/add-order")
