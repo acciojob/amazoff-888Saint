@@ -26,6 +26,7 @@ public class TestCases {
     @MockBean
     private OrderRepository orderRepository;
 
+    @MockBean
     private OrderService mockOrderService;
 
     @BeforeEach
